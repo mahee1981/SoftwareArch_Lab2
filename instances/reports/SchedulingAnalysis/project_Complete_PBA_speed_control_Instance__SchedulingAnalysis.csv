@@ -1,0 +1,8 @@
+Test scheduability Report
+
+Processor Utilization/Scheduling Results
+Warning! RT_1GHz: Processor Complete_PBA_speed_control_Instance.RT_1GHz is not used and has no MIPS capacity
+
+Thread binding report
+thread speed_control.scale_speed_data(0.000 MIPS) ==>  NOTHING
+thread speed_control.speed_control_laws(0.000 MIPS) ==>  NOTHING
