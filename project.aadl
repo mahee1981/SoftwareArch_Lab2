@@ -1,0 +1,168 @@
+
+
+package project
+public
+	
+--Definition of the system as a composite component
+system AdaptiveCruiseControlSystem
+end AdaptiveCruiseControlSystem;
+
+
+
+--Implementation of the system as speed control
+system implementation AdaptiveCruiseControlSystem.PBA_speed_control
+	--the speed control is comprised of software and hardware components
+	subcomponents
+		speed_sensor:device sensor.speed; -- an instance of the speed sensor component in the system named speed_sensor (hardware)
+		throttle: device actuator.speed; -- an instance of the speed actuator component in the system named throttle (hardware)
+		speed_control: process control.speed; -- an instance of the process component in the system named speed control (software)
+		interface_unit:device interface.pilot; -- an instance of the device component in the system named interface_unit (hardware)
+		RT_1GHz: processor Real_Time.one_GHz; -- an instance of the processor component in the system named RT_1GHz (hardware)
+    	Standard_Marine_Bus: bus Marine.Standard; -- an instance of the bus component in the system named Standard_Marine_bus (hardware)
+    	Stand_Memory: memory RAM.Standard; -- an instance of the memory component in the system named Stand_Memory (hardware)
+	connections
+		-- DC1, DC2, and DC3 are port connections
+		
+		-- out port sensor_data from speed_sensor is connected to the in port speed_data in speed_control
+		DC1: port speed_sensor.sensor_data -> speed_control.sensor_data; 
+		-- out port command_data from speed_control is connected to the in port cmd in throttle
+		DC2: port speed_control.command_data -> throttle.cmd;
+		-- out port set_speed from interface_unit is connected to the in port set_speed in speed_control
+		DC3: port interface_unit.set_speed -> speed_control.set_speed;
+		-- out port disengage from interface_unit is connected to the in port disengage in speed_control
+		EC4: port interface_unit.disengage -> speed_control.disengage;
+		
+		-- BAC1, BAC2, BAC3, BAC4, and BAC5 are the bus access connections for the components that need to communicate with the 
+		-- PBA control software
+		BAC1: bus access Standard_Marine_Bus <-> speed_sensor.BA1;
+    	BAC2: bus access Standard_Marine_Bus <-> RT_1GHz.BA1;
+    	BAC3: bus access Standard_Marine_Bus <-> throttle.BA1;
+    	BAC4: bus access Standard_Marine_Bus <-> interface_unit.BA1;
+    	BAC5: bus access Standard_Marine_Bus <-> Stand_Memory.BA1;
+	properties
+		-- allowed_processor_binding properties tie the execution of speed_control_laws and scale_speed_data threads to the processor RT_1GHz
+  		Allowed_Processor_Binding => (reference(RT_1GHz))
+    applies to speed_control.speed_control_laws;
+  		Allowed_Processor_Binding => (reference(RT_1GHz))
+    applies to speed_control.scale_speed_data;
+    	-- binds the storage of code of the speed_control process to the RAM 
+  		Actual_Memory_Binding => (reference(Stand_Memory))
+    applies to speed_control;
+end AdaptiveCruiseControlSystem.PBA_speed_control;
+	
+
+-- definition of a sensor component as a device
+device sensor
+	features
+		sensor_data: out data port;
+		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
+end sensor;
+
+-- implementation of the sensor component as speed sensor
+device implementation sensor.speed	
+end sensor.speed;
+	
+-- definition of an interface component as a device
+device interface
+	features
+		set_speed: out data port;
+		disengage: out event port;
+		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
+end interface;
+
+-- implementation of the interface as pilot that will be used as an input for PBA information
+device implementation interface.pilot
+end interface.pilot;
+
+-- definition of a process component as control
+process control
+	features
+		command_data: out data port; -- data that gets sent to the actuator
+		sensor_data: in data port; -- data received from the sensor
+		set_speed: in data port; -- speed data received from the interface
+		disengage: in event port; -- event port that receives the signal to disengage the PGA
+end control;
+-- implementation of the control process as PBA control function
+process implementation control.speed
+	-- the process is composed of two threads scale_speed_data and speed_control_laws
+	subcomponents
+		scale_speed_data: thread read_data.speed; -- thread that reads the sensor input data and performs scaling and filtering
+    	speed_control_laws: thread control_laws.speed; -- thread that executes PBA speed control laws and sends output to throttle actuator
+  	connections
+    	DC1: port sensor_data -> scale_speed_data.sensor_data; -- connection between the process in port and scale_speed_data thread in port
+    	DC2: port scale_speed_data.proc_data -> speed_control_laws.proc_data; -- connection between the processed data of the scale_speed_data thread and speed_control_laws thread
+    	DC3: port speed_control_laws.cmd -> command_data; -- connection of the output signal from the control_laws thread to the out port of
+    	-- the process
+    	EC1: port disengage -> speed_control_laws.disengage; -- event port connection between the process and speed_control_laws thread for
+    	-- stopping the process
+    	DC4: port set_speed -> speed_control_laws.set_speed; -- data port connection between the process and speed_control_laws thread for
+    	-- setting the speed.
+end control.speed;
+	
+-- definition of the actuator component as device
+device actuator
+	features
+		cmd:in data port; -- in data port for commands sent by the process
+		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
+end actuator;
+-- implementation of the actuator device as a speed actuator used for modeling the throttle
+device implementation actuator.speed
+end actuator.speed;
+
+-- definition of the read_data software component as a thread
+thread read_data
+  	features
+    	sensor_data: in data port; 
+    	proc_data: out data port;
+  	properties
+    	Dispatch_Protocol => Periodic;
+    	Compute_Execution_Time => 1 ms .. 2 ms;
+    	Period => 50 ms;
+end read_data;
+
+-- implementation of the read_data thread as read_data.speed
+thread implementation read_data.speed
+end read_data.speed;
+
+-- definition of the control_laws software component as a thread
+thread control_laws
+  	features
+    	proc_data: in data port;
+    	cmd: out data port;
+    	disengage: in event port;
+    	set_speed: in data port;
+  	properties
+    	Dispatch_Protocol => Periodic;
+    	Compute_Execution_Time => 3 ms .. 5 ms;
+    	Period => 50 ms;
+end Control_laws;
+
+-- implementation of the control_laws thread as control_laws.speed
+thread implementation control_laws.speed
+end control_laws.speed;
+
+-- definition of a real_time component as a processor
+processor Real_Time
+	features
+		BA1: requires bus access Marine.Standard;  -- communication of the component with the process requires access to the bu
+end Real_Time;
+
+-- implementation of a real_time processor as real_time processor of 1 GHz
+processor implementation Real_Time.one_GHz
+end Real_Time.one_GHz;
+-- definition of a memory component as RAM
+memory RAM
+  	features
+    	BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
+end RAM;
+-- implementation of RAM memory as standard RAM memory
+memory implementation RAM.Standard
+end RAM.Standard;
+-- definition of Marine Bus component as bus
+bus Marine
+end Marine;
+-- implementation of a marine bus as standard marine bus component
+bus implementation Marine.Standard
+end Marine.Standard;
+
+end project;
