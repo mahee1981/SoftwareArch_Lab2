@@ -1,0 +1,15 @@
+Bind threads to processors Report
+
+Binpacker Analysis Report
+
+Warning! Bus Standard_Marine_Bus is missing Transmission Time property. Using default of 1.0E-5
+Warning! Device speed_sensor is missing period property. Using default of 1 ns
+Warning! Device throttle is missing period property. Using default of 1 ns
+Warning! Device interface_unit is missing period property. Using default of 1 ns
+
+Binpacking results: Success
+Processor Complete_PBA_speed_control_Instance.RT_1GHz (1000.0 MIPS) Load: 15% Available: 86%
+
+Thread to Processor Bindings
+Thread Complete_PBA_speed_control_Instance.speed_control.scale_speed_data ==> Processor Complete_PBA_speed_control_Instance.RT_1GHz No CPU capacity
+Thread Complete_PBA_speed_control_Instance.speed_control.speed_control_laws ==> Processor Complete_PBA_speed_control_Instance.RT_1GHz No CPU capacity
