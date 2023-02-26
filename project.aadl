@@ -1,5 +1,3 @@
-
-
 package project
 public
 	
@@ -20,7 +18,13 @@ system implementation AdaptiveCruiseControlSystem.PBA_speed_control
 		RT_1GHz: processor Real_Time.one_GHz; -- an instance of the processor component in the system named RT_1GHz (hardware)
     	Standard_Marine_Bus: bus Marine.Standard; -- an instance of the bus component in the system named Standard_Marine_bus (hardware)
     	Stand_Memory: memory RAM.Standard; -- an instance of the memory component in the system named Stand_Memory (hardware)
+    	
+    	-- added components for distance control
+    	distance_sensor: device sensor.distance;
+    	brake: device actuator.distance;
 	connections
+		
+		
 		-- DC1, DC2, and DC3 are port connections
 		
 		-- out port sensor_data from speed_sensor is connected to the in port speed_data in speed_control
@@ -32,6 +36,12 @@ system implementation AdaptiveCruiseControlSystem.PBA_speed_control
 		-- out port disengage from interface_unit is connected to the in port disengage in speed_control
 		EC4: port interface_unit.disengage -> speed_control.disengage;
 		
+		
+		-- extended connections for distance control
+		DC4: port distance_sensor.sensor_data -> speed_control.sensor_data;
+		DC5: port speed_control.command_data -> brake.cmd;
+		DC6: port interface_unit.set_distance -> speed_control.set_distance;
+		
 		-- BAC1, BAC2, BAC3, BAC4, and BAC5 are the bus access connections for the components that need to communicate with the 
 		-- PBA control software
 		BAC1: bus access Standard_Marine_Bus <-> speed_sensor.BA1;
@@ -39,12 +49,25 @@ system implementation AdaptiveCruiseControlSystem.PBA_speed_control
     	BAC3: bus access Standard_Marine_Bus <-> throttle.BA1;
     	BAC4: bus access Standard_Marine_Bus <-> interface_unit.BA1;
     	BAC5: bus access Standard_Marine_Bus <-> Stand_Memory.BA1;
+    	
+    	-- extended bus accesses for distance control
+    	BAC6: bus access Standard_Marine_Bus <-> distance_sensor.BA1;
+    	BAC7: bus access Standard_Marine_Bus <-> brake.BA1;
+    	
+    	
 	properties
 		-- allowed_processor_binding properties tie the execution of speed_control_laws and scale_speed_data threads to the processor RT_1GHz
   		Allowed_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.speed_control_laws;
   		Allowed_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.scale_speed_data;
+    
+    
+    	-- distance extension
+  		Allowed_Processor_Binding => (reference(RT_1GHz))
+    applies to speed_control.scale_distance_data;
+    
+    
     	-- binds the storage of code of the speed_control process to the RAM 
   		Actual_Memory_Binding => (reference(Stand_Memory))
     applies to speed_control;
@@ -58,6 +81,10 @@ device sensor
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
 end sensor;
 
+--implementation of the sensor component as distance sensor
+device implementation sensor.distance
+end sensor.distance;
+
 -- implementation of the sensor component as speed sensor
 device implementation sensor.speed	
 end sensor.speed;
@@ -66,6 +93,7 @@ end sensor.speed;
 device interface
 	features
 		set_speed: out data port;
+		set_distance: out data port; -- extended the functionality of the interface to include distance 
 		disengage: out event port;
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
 end interface;
@@ -80,6 +108,7 @@ process control
 		command_data: out data port; -- data that gets sent to the actuator
 		sensor_data: in data port; -- data received from the sensor
 		set_speed: in data port; -- speed data received from the interface
+		set_distance: in data port; -- extended functionality for distance setting;
 		disengage: in event port; -- event port that receives the signal to disengage the PGA
 end control;
 -- implementation of the control process as PBA control function
@@ -88,6 +117,7 @@ process implementation control.speed
 	subcomponents
 		scale_speed_data: thread read_data.speed; -- thread that reads the sensor input data and performs scaling and filtering
     	speed_control_laws: thread control_laws.speed; -- thread that executes PBA speed control laws and sends output to throttle actuator
+    	scale_distance_data: thread read_data.distance; -- thread that reads the distance input and performs scaling and filtering
   	connections
     	DC1: port sensor_data -> scale_speed_data.sensor_data; -- connection between the process in port and scale_speed_data thread in port
     	DC2: port scale_speed_data.proc_data -> speed_control_laws.proc_data; -- connection between the processed data of the scale_speed_data thread and speed_control_laws thread
@@ -97,6 +127,13 @@ process implementation control.speed
     	-- stopping the process
     	DC4: port set_speed -> speed_control_laws.set_speed; -- data port connection between the process and speed_control_laws thread for
     	-- setting the speed.
+    	
+    	-- extended functionalities for distance control
+    	DC5: port sensor_data -> scale_distance_data.sensor_data;
+    	DC6: port scale_distance_data.proc_data -> speed_control_laws.proc_data;
+    	DC7: port set_distance -> speed_control_laws.set_speed;
+    	
+    	
 end control.speed;
 	
 -- definition of the actuator component as device
@@ -108,6 +145,12 @@ end actuator;
 -- implementation of the actuator device as a speed actuator used for modeling the throttle
 device implementation actuator.speed
 end actuator.speed;
+
+
+-- implementation of the actuator device as brake actuator used for modeling the brake
+-- this serves as a distance actuator
+device implementation actuator.distance
+end actuator.distance;
 
 -- definition of the read_data software component as a thread
 thread read_data
@@ -123,6 +166,10 @@ end read_data;
 -- implementation of the read_data thread as read_data.speed
 thread implementation read_data.speed
 end read_data.speed;
+
+-- implementation of the read_data thread as read_data.distance used for data processing
+thread implementation read_data.distance
+end read_data.distance;
 
 -- definition of the control_laws software component as a thread
 thread control_laws
@@ -144,7 +191,7 @@ end control_laws.speed;
 -- definition of a real_time component as a processor
 processor Real_Time
 	features
-		BA1: requires bus access Marine.Standard;  -- communication of the component with the process requires access to the bu
+		BA1: requires bus access Marine.Standard;  -- communication of the component with the process requires access to the bus
 end Real_Time;
 
 -- implementation of a real_time processor as real_time processor of 1 GHz
@@ -164,5 +211,7 @@ end Marine;
 -- implementation of a marine bus as standard marine bus component
 bus implementation Marine.Standard
 end Marine.Standard;
+
+
 
 end project;
