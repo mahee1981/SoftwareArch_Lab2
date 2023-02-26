@@ -6,6 +6,15 @@
     <classifier xsi:type="aadl2:BusImplementation" href="../project.aadl#project.Marine.Standard"/>
   </componentInstance>
   <componentInstance name="speed_sensor" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.05">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="sensor_data" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
     </featureInstance>
@@ -17,6 +26,15 @@
     <classifier xsi:type="aadl2:DeviceImplementation" href="../project.aadl#project.sensor.speed"/>
   </componentInstance>
   <componentInstance name="throttle" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.05">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="cmd">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
     </featureInstance>
@@ -28,6 +46,15 @@
     <classifier xsi:type="aadl2:DeviceImplementation" href="../project.aadl#project.actuator.speed"/>
   </componentInstance>
   <componentInstance name="interface_unit" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.05">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="set_speed" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
     </featureInstance>
@@ -45,6 +72,15 @@
     <classifier xsi:type="aadl2:DeviceImplementation" href="../project.aadl#project.interface.pilot"/>
   </componentInstance>
   <componentInstance name="distance_sensor" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.05">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="sensor_data" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
     </featureInstance>
@@ -56,6 +92,15 @@
     <classifier xsi:type="aadl2:DeviceImplementation" href="../project.aadl#project.sensor.distance"/>
   </componentInstance>
   <componentInstance name="brake" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.05">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="cmd">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
     </featureInstance>
@@ -83,6 +128,15 @@
         </ownedValue>
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Reference_Processor"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ClassifierValue">
+          <classifier xsi:type="aadl2:ProcessorImplementation" href="../project.aadl#project.Real_Time.one_GHz"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <featureInstance name="command_data" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
@@ -153,6 +207,24 @@
           </ownedValue>
         </ownedValue>
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.2">
+            <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Reference_Processor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:ProcessorImplementation" href="../project.aadl#project.Real_Time.one_GHz"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
@@ -232,6 +304,24 @@
           </ownedValue>
         </ownedValue>
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.5">
+            <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Reference_Processor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:ProcessorImplementation" href="../project.aadl#project.Real_Time.one_GHz"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
@@ -328,6 +418,24 @@
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSBudget"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.2">
+            <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Reference_Processor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:ProcessorImplementation" href="../project.aadl#project.Real_Time.one_GHz"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
         <ownedValue>
           <ownedValue xsi:type="aadl2:NamedValue">
@@ -402,6 +510,26 @@
     <classifier xsi:type="aadl2:ProcessImplementation" href="../project.aadl#project.control.speed"/>
   </componentInstance>
   <componentInstance name="RT_1GHz" category="processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Scheduling_Protocol"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.7/@ownedLiteral.5"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSCapacity"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="10.0">
+          <unit href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
     <featureInstance name="BA1" category="busAccess" direction="in out">
       <feature xsi:type="aadl2:BusAccess" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedBusAccess.0"/>
     </featureInstance>

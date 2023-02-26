@@ -1,14 +1,16 @@
 package project
 public
+	with SEI;
 	
 --Definition of the system as a composite component
 system AdaptiveCruiseControlSystem
+	
 end AdaptiveCruiseControlSystem;
 
 
 
 --Implementation of the system as speed control
-system implementation AdaptiveCruiseControlSystem.PBA_speed_control
+	system implementation AdaptiveCruiseControlSystem.PBA_speed_control
 	--the speed control is comprised of software and hardware components
 	subcomponents
 		speed_sensor:device sensor.speed; -- an instance of the speed sensor component in the system named speed_sensor (hardware)
@@ -57,7 +59,8 @@ system implementation AdaptiveCruiseControlSystem.PBA_speed_control
     	
 	properties
 		-- allowed_processor_binding properties tie the execution of speed_control_laws and scale_speed_data threads to the processor RT_1GHz
-  		Allowed_Processor_Binding => (reference(RT_1GHz))
+	
+		Allowed_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.speed_control_laws;
   		Allowed_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.scale_speed_data;
@@ -75,44 +78,50 @@ end AdaptiveCruiseControlSystem.PBA_speed_control;
 	
 
 -- definition of a sensor component as a device
-device sensor
+	device sensor
 	features
 		sensor_data: out data port;
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
-end sensor;
+	properties
+		SEI::MIPSBudget => 0.05 MIPS;
+	end sensor;
 
 --implementation of the sensor component as distance sensor
-device implementation sensor.distance
+	device implementation sensor.distance
 end sensor.distance;
 
 -- implementation of the sensor component as speed sensor
-device implementation sensor.speed	
+	device implementation sensor.speed	
 end sensor.speed;
 	
 -- definition of an interface component as a device
-device interface
+	device interface
 	features
 		set_speed: out data port;
 		set_distance: out data port; -- extended the functionality of the interface to include distance 
 		disengage: out event port;
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
-end interface;
+	properties
+		SEI::MIPSBudget => 0.05 MIPS;
+	end interface;
 
 -- implementation of the interface as pilot that will be used as an input for PBA information
-device implementation interface.pilot
+	device implementation interface.pilot
 end interface.pilot;
 
 -- definition of a process component as control
-process control
+	process control
 	features
 		command_data: out data port; -- data that gets sent to the actuator
 		sensor_data: in data port; -- data received from the sensor
 		set_speed: in data port; -- speed data received from the interface
 		set_distance: in data port; -- extended functionality for distance setting;
 		disengage: in event port; -- event port that receives the signal to disengage the PGA
-end control;
+		
+
+	end control;
 -- implementation of the control process as PBA control function
-process implementation control.speed
+	process implementation control.speed
 	-- the process is composed of two threads scale_speed_data and speed_control_laws
 	subcomponents
 		scale_speed_data: thread read_data.speed; -- thread that reads the sensor input data and performs scaling and filtering
@@ -132,28 +141,31 @@ process implementation control.speed
     	DC5: port sensor_data -> scale_distance_data.sensor_data;
     	DC6: port scale_distance_data.proc_data -> speed_control_laws.proc_data;
     	DC7: port set_distance -> speed_control_laws.set_speed;
-    	
+		properties
+	Reference_Processor => classifier(Real_Time.one_GHz);
     	
 end control.speed;
 	
 -- definition of the actuator component as device
-device actuator
+	device actuator
 	features
 		cmd:in data port; -- in data port for commands sent by the process
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
-end actuator;
+	properties
+			SEI::MIPSBudget => 0.05 MIPS;
+	end actuator;
 -- implementation of the actuator device as a speed actuator used for modeling the throttle
-device implementation actuator.speed
+	device implementation actuator.speed
 end actuator.speed;
 
 
 -- implementation of the actuator device as brake actuator used for modeling the brake
 -- this serves as a distance actuator
-device implementation actuator.distance
+	device implementation actuator.distance
 end actuator.distance;
 
 -- definition of the read_data software component as a thread
-thread read_data
+	thread read_data
   	features
     	sensor_data: in data port; 
     	proc_data: out data port;
@@ -161,56 +173,62 @@ thread read_data
     	Dispatch_Protocol => Periodic;
     	Compute_Execution_Time => 1 ms .. 2 ms;
     	Period => 50 ms;
+    	SEI::MIPSBudget => 0.2 MIPS;
 end read_data;
 
 -- implementation of the read_data thread as read_data.speed
-thread implementation read_data.speed
+	thread implementation read_data.speed
 end read_data.speed;
 
 -- implementation of the read_data thread as read_data.distance used for data processing
-thread implementation read_data.distance
+	thread implementation read_data.distance
 end read_data.distance;
 
 -- definition of the control_laws software component as a thread
-thread control_laws
+	thread control_laws
   	features
     	proc_data: in data port;
     	cmd: out data port;
-    	disengage: in event port;
     	set_speed: in data port;
-  	properties
-    	Dispatch_Protocol => Periodic;
+  	disengage: in event port;
+		properties
+			Dispatch_Protocol => Periodic;
     	Compute_Execution_Time => 3 ms .. 5 ms;
     	Period => 50 ms;
-end Control_laws;
+    	SEI::MIPSBudget => 0.5 MIPS;
+end control_laws;
 
 -- implementation of the control_laws thread as control_laws.speed
-thread implementation control_laws.speed
+	thread implementation control_laws.speed
 end control_laws.speed;
 
 -- definition of a real_time component as a processor
-processor Real_Time
+	processor Real_Time
 	features
 		BA1: requires bus access Marine.Standard;  -- communication of the component with the process requires access to the bus
+	properties	
+		Scheduling_Protocol => (RMS);
+		SEI::MIPSCapacity => 10.0 MIPS;
 end Real_Time;
 
 -- implementation of a real_time processor as real_time processor of 1 GHz
 processor implementation Real_Time.one_GHz
 end Real_Time.one_GHz;
 -- definition of a memory component as RAM
-memory RAM
+	memory RAM
   	features
     	BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
-end RAM;
+	end RAM;
 -- implementation of RAM memory as standard RAM memory
-memory implementation RAM.Standard
+	memory implementation RAM.Standard
 end RAM.Standard;
 -- definition of Marine Bus component as bus
-bus Marine
+	bus Marine
 end Marine;
 -- implementation of a marine bus as standard marine bus component
-bus implementation Marine.Standard
+	bus implementation Marine.Standard
 end Marine.Standard;
+
 
 
 

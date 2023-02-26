@@ -10,9 +10,9 @@ Warning! Device distance_sensor is missing period property. Using default of 1 n
 Warning! Device brake is missing period property. Using default of 1 ns
 
 Binpacking results: Success
-Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz (1000.0 MIPS) Load: 18% Available: 82%
+Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz (10.0 MIPS) Load: 19% Available: 82%
 
 Thread to Processor Bindings
-Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_speed_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz No CPU capacity
-Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_distance_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz No CPU capacity
-Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.speed_control_laws ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz No CPU capacity
+Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_distance_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 4.0%
+Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.speed_control_laws ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 10.0%
+Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_speed_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 4.0%
