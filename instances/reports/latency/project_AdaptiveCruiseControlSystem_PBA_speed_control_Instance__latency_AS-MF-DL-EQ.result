@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="ASCII"?>
+<result:Result xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:result="http://www.osate.org/result/Result" analysis="latencyreport">
+  <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#/"/>
+  <subResults analysis="on_speed_end_to_end">
+    <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@endToEndFlow.0"/>
+    <values xsi:type="result:StringValue" value="Latency analysis for end-to-end flow 'on_speed_end_to_end' of system 'AdaptiveCruiseControlSystem.PBA_speed_control' with preference settings AS-MF-DL-EQ"/>
+    <values xsi:type="result:RealValue" value="18.0"/>
+    <values xsi:type="result:RealValue" value="129.0"/>
+    <values xsi:type="result:RealValue" value="15.0"/>
+    <values xsi:type="result:RealValue" value="17.0"/>
+    <values xsi:type="result:RealValue" value="180.0"/>
+    <values xsi:type="result:RealValue" value="180.0"/>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="FIRST_SAMPLED"/>
+      <values xsi:type="result:StringValue" value="FIRST_SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Initial 10.0ms sampling latency not added" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.9"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Adding latency subtotal from protocols and bus - shown with ()" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.9"/>
+      </issues>
+      <subContributors>
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="3.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="2.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+        <issues issueType="INFO" message="Using data transfer time" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+        <issues issueType="INFO" message="Data size = 0. Possibly data type on port missing" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+      </subContributors>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="58.0"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Best case 0 ms worst case 50.0ms (period) sampling delay" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      <values xsi:type="result:RealValue" value="3.0"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="9.0"/>
+      <values xsi:type="result:RealValue" value="9.0"/>
+      <values xsi:type="result:RealValue" value="108.0"/>
+      <values xsi:type="result:StringValue" value="DEADLINE"/>
+      <values xsi:type="result:StringValue" value="PROCESSING_TIME"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.14"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="111.0"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Adding latency subtotal from protocols and bus - shown with ()" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.14"/>
+      </issues>
+      <subContributors>
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="3.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="2.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+        <issues issueType="INFO" message="Using data transfer time" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+        <issues issueType="INFO" message="Data size = 0. Possibly data type on port missing" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+      </subContributors>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.2"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="121.0"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Best case 0 ms worst case 10.0ms (period) sampling delay" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.2"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.2"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="18.0"/>
+      <values xsi:type="result:RealValue" value="18.0"/>
+      <values xsi:type="result:RealValue" value="129.0"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+  </subResults>
+  <subResults analysis="on_distance_end_to_end">
+    <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@endToEndFlow.1"/>
+    <values xsi:type="result:StringValue" value="Latency analysis for end-to-end flow 'on_distance_end_to_end' of system 'AdaptiveCruiseControlSystem.PBA_speed_control' with preference settings AS-MF-DL-EQ"/>
+    <values xsi:type="result:RealValue" value="18.0"/>
+    <values xsi:type="result:RealValue" value="129.0"/>
+    <values xsi:type="result:RealValue" value="15.0"/>
+    <values xsi:type="result:RealValue" value="17.0"/>
+    <values xsi:type="result:RealValue" value="180.0"/>
+    <values xsi:type="result:RealValue" value="180.0"/>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="FIRST_SAMPLED"/>
+      <values xsi:type="result:StringValue" value="FIRST_SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Initial 10.0ms sampling latency not added" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.3"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:RealValue" value="5.0"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.10"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Adding latency subtotal from protocols and bus - shown with ()" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.10"/>
+      </issues>
+      <subContributors>
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="3.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="2.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+        <issues issueType="INFO" message="Using data transfer time" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+        <issues issueType="INFO" message="Data size = 0. Possibly data type on port missing" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+      </subContributors>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="6.0"/>
+      <values xsi:type="result:RealValue" value="58.0"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Best case 0 ms worst case 50.0ms (period) sampling delay" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.7/@componentInstance.1"/>
+      <values xsi:type="result:RealValue" value="3.0"/>
+      <values xsi:type="result:RealValue" value="50.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="9.0"/>
+      <values xsi:type="result:RealValue" value="9.0"/>
+      <values xsi:type="result:RealValue" value="108.0"/>
+      <values xsi:type="result:StringValue" value="DEADLINE"/>
+      <values xsi:type="result:StringValue" value="PROCESSING_TIME"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.15"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="111.0"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="UNKNOWN"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Adding latency subtotal from protocols and bus - shown with ()" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@connectionInstance.15"/>
+      </issues>
+      <subContributors>
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="3.0"/>
+        <values xsi:type="result:RealValue" value="1.0"/>
+        <values xsi:type="result:RealValue" value="2.0"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:RealValue"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="TRANSMISSION_TIME"/>
+        <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+        <issues issueType="INFO" message="Using data transfer time" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+        <issues issueType="INFO" message="Data size = 0. Possibly data type on port missing" diagnostic="">
+          <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.0"/>
+        </issues>
+      </subContributors>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.5"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="121.0"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SAMPLED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+      <issues issueType="INFO" message="Best case 0 ms worst case 10.0ms (period) sampling delay" diagnostic="">
+        <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.5"/>
+      </issues>
+    </contributors>
+    <contributors>
+      <sourceReference href="../../project_AdaptiveCruiseControlSystem_PBA_speed_control_Instance.aaxl2#//@componentInstance.5"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue" value="8.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue" value="18.0"/>
+      <values xsi:type="result:RealValue" value="18.0"/>
+      <values xsi:type="result:RealValue" value="129.0"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SPECIFIED"/>
+      <values xsi:type="result:StringValue" value="SYNCUNKNOWN"/>
+    </contributors>
+  </subResults>
+</result:Result>

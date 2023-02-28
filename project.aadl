@@ -57,6 +57,16 @@ end AdaptiveCruiseControlSystem;
     	-- extended bus accesses for distance control
     	BAC6: bus access Standard_Marine_Bus <-> distance_sensor.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
     	BAC7: bus access Standard_Marine_Bus <-> brake.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    flows
+		on_speed_end_to_end: end to end flow
+		interface_unit.on_speed_flow_src -> DC3 ->
+		speed_control.on_speed_flow_path -> DC2 ->
+		throttle.on_speed_flow_snk {Latency => 180 ms .. 180 ms;};
+		
+		on_distance_end_to_end: end to end flow
+		interface_unit.on_distance_flow_src -> DC6 ->
+		speed_control.on_distance_flow_path -> DC5 ->
+		brake.on_speed_flow_snk {Latency => 180 ms .. 180 ms;};
     	
     	
     	
@@ -64,14 +74,14 @@ end AdaptiveCruiseControlSystem;
 	properties
 		-- allowed_processor_binding properties tie the execution of speed_control_laws and scale_speed_data threads to the processor RT_1GHz
 	
-		Allowed_Processor_Binding => (reference(RT_1GHz))
+		Actual_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.speed_control_laws;
-  		Allowed_Processor_Binding => (reference(RT_1GHz))
+  		Actual_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.scale_speed_data;
     
     
     	-- distance extension
-  		Allowed_Processor_Binding => (reference(RT_1GHz))
+  		Actual_Processor_Binding => (reference(RT_1GHz))
     applies to speed_control.scale_distance_data;
     
     
@@ -95,6 +105,7 @@ end AdaptiveCruiseControlSystem.PBA_speed_control;
 	properties
 		SEI::MIPSBudget => 0.05 MIPS;
 		Period => 10ms;
+		Latency => 500us .. 1ms;
 	end sensor;
 
 --implementation of the sensor component as distance sensor
@@ -111,10 +122,16 @@ end sensor.speed;
 		set_speed: out data port;
 		set_distance: out data port; -- extended the functionality of the interface to include distance 
 		disengage: out event port;
-		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
+		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
+	flows
+		on_speed_flow_src: flow source set_speed {latency => 5ms .. 5ms;};
+		on_distance_flow_src: flow source set_distance{latency => 5ms .. 5ms;};
 	properties
 		SEI::MIPSBudget => 0.05 MIPS;
-		Period => 10ms;
+		Period => 10 ms;
+		Latency => 500us .. 1ms;
+	
+	
 	end interface;
 
 -- implementation of the interface as pilot that will be used as an input for PBA information
@@ -129,8 +146,10 @@ end interface.pilot;
 		set_speed: in data port; -- speed data received from the interface
 		set_distance: in data port; -- extended functionality for distance setting;
 		disengage: in event port; -- event port that receives the signal to disengage the PGA
+	flows
+		on_speed_flow_path: flow path set_speed -> command_data{latency => 10 ms .. 20 ms;};
+		on_distance_flow_path: flow path set_distance -> command_data{latency => 10 ms .. 20 ms;};
 		
-
 	end control;
 -- implementation of the control process as PBA control function
 	process implementation control.speed
@@ -139,6 +158,7 @@ end interface.pilot;
 		scale_speed_data: thread read_data.speed; -- thread that reads the sensor input data and performs scaling and filtering
     	speed_control_laws: thread control_laws.speed; -- thread that executes PBA speed control laws and sends output to throttle actuator
     	scale_distance_data: thread read_data.distance; -- thread that reads the distance input and performs scaling and filtering
+		
   	connections
     	DC1: port sensor_data -> scale_speed_data.sensor_data; -- connection between the process in port and scale_speed_data thread in port
     	DC2: port scale_speed_data.proc_data -> speed_control_laws.proc_data; -- connection between the processed data of the scale_speed_data thread and speed_control_laws thread
@@ -153,6 +173,10 @@ end interface.pilot;
     	DC5: port sensor_data -> scale_distance_data.sensor_data;
     	DC6: port scale_distance_data.proc_data -> speed_control_laws.proc_data;
     	DC7: port set_distance -> speed_control_laws.set_speed;
+		flows
+			on_speed_flow_path: flow path set_speed -> DC4 -> speed_control_laws.set_speed_flow -> DC3 -> command_data{latency => 10 ms .. 20 ms;};
+			on_distance_flow_path: flow path set_distance -> DC7 -> speed_control_laws.set_speed_flow -> DC3 -> command_data{latency => 10 ms .. 20 ms;}; 
+			
 		
     	
 end control.speed;
@@ -162,9 +186,12 @@ end control.speed;
 	features
 		cmd:in data port; -- in data port for commands sent by the process
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
+	flows
+		on_speed_flow_snk: flow sink cmd{latency => 8 ms .. 8 ms;};
 	properties
 			SEI::MIPSBudget => 0.05 MIPS;
 			Period => 10ms;
+			Latency => 500us .. 1ms;
 	end actuator;
 -- implementation of the actuator device as a speed actuator used for modeling the throttle
 	device implementation actuator.speed
@@ -181,6 +208,8 @@ end actuator.distance;
   	features
     	sensor_data: in data port; 
     	proc_data: out data port;
+		flows
+			read_data_flow: flow path sensor_data -> proc_data;
   	properties
     	Dispatch_Protocol => Periodic;
     	Compute_Execution_Time => 1 ms .. 2 ms;
@@ -202,7 +231,10 @@ end read_data.distance;
     	proc_data: in data port;
     	cmd: out data port;
     	set_speed: in data port;
-  	disengage: in event port;
+    	disengage: in event port;
+		flows
+			prod_data_flow: flow path proc_data -> cmd;
+			set_speed_flow: flow path set_speed -> cmd;
 		properties
 			Dispatch_Protocol => Periodic;
     	Compute_Execution_Time => 3 ms .. 5 ms;
@@ -242,7 +274,10 @@ end Marine;
 	bus implementation Marine.Standard
 		properties
 			SEI::BandWidthCapacity => 500000.0 bitsps;
-    		Transmission_Time => [fixed  => 1ms .. 3ms;];
+    		Transmission_Time => [fixed  => 1ms .. 3ms; ];
+    		Latency => 1ms .. 2ms;  -- acquistion time
+    		
+    		
 end Marine.Standard;
 
 
