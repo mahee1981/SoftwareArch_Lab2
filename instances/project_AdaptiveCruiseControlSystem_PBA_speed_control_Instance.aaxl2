@@ -9,7 +9,44 @@
     </ownedValue>
     <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
   </ownedPropertyAssociation>
+  <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+    <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthCapacity"/>
+    <ownedValue>
+      <ownedValue xsi:type="aadl2:RealLiteral" value="50000.0">
+        <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+      </ownedValue>
+    </ownedValue>
+    <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+  </ownedPropertyAssociation>
   <componentInstance name="Standard_Marine_Bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthCapacity"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="500000.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Transmission_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RecordValue">
+          <ownedFieldValue>
+            <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedProperty.14/@ownedPropertyType/@ownedField.0"/>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" value="1">
+                <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </minimum>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="3">
+                <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </maximum>
+            </ownedValue>
+          </ownedFieldValue>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
     <subcomponent xsi:type="aadl2:BusSubcomponent" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
     <index>0</index>
     <classifier xsi:type="aadl2:BusImplementation" href="../project.aadl#project.Marine.Standard"/>
@@ -32,6 +69,15 @@
         </ownedValue>
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
     </ownedPropertyAssociation>
     <featureInstance name="sensor_data" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
@@ -62,6 +108,15 @@
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
     <featureInstance name="cmd">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
     </featureInstance>
@@ -90,6 +145,15 @@
         </ownedValue>
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.1"/>
     </ownedPropertyAssociation>
     <featureInstance name="set_speed" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
@@ -126,6 +190,15 @@
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
     <featureInstance name="sensor_data" direction="out">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
     </featureInstance>
@@ -154,6 +227,15 @@
         </ownedValue>
       </ownedValue>
       <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.1"/>
     </ownedPropertyAssociation>
     <featureInstance name="cmd">
       <feature xsi:type="aadl2:DataPort" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
@@ -281,6 +363,15 @@
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.3"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
         <ownedValue>
           <ownedValue xsi:type="aadl2:NamedValue">
@@ -302,15 +393,6 @@
           </ownedValue>
         </ownedValue>
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.1"/>
-      </ownedPropertyAssociation>
-      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
-        <ownedValue>
-          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
-            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
-          </ownedValue>
-        </ownedValue>
-        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.2"/>
       </ownedPropertyAssociation>
       <featureInstance name="sensor_data">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
@@ -378,6 +460,15 @@
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.3"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
         <ownedValue>
           <ownedValue xsi:type="aadl2:NamedValue">
@@ -399,15 +490,6 @@
           </ownedValue>
         </ownedValue>
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
-      </ownedPropertyAssociation>
-      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
-        <ownedValue>
-          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
-            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
-          </ownedValue>
-        </ownedValue>
-        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.2"/>
       </ownedPropertyAssociation>
       <featureInstance name="proc_data">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
@@ -490,6 +572,15 @@
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.3"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
         <ownedValue>
           <ownedValue xsi:type="aadl2:NamedValue">
@@ -511,15 +602,6 @@
           </ownedValue>
         </ownedValue>
         <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.1"/>
-      </ownedPropertyAssociation>
-      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-        <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
-        <ownedValue>
-          <ownedValue xsi:type="aadl2:IntegerLiteral" value="50">
-            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
-          </ownedValue>
-        </ownedValue>
-        <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.2"/>
       </ownedPropertyAssociation>
       <featureInstance name="sensor_data">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
@@ -592,41 +674,185 @@
     <classifier xsi:type="aadl2:ProcessorImplementation" href="../project.aadl#project.Real_Time.one_GHz"/>
   </componentInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> speed_sensor.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.1" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> RT_1GHz.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.0" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.8/@featureInstance.0">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> throttle.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.1" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> interface_unit.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.3" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.3">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> Stand_Memory.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.0">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> distance_sensor.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.1" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.4/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="Standard_Marine_Bus &lt;-> brake.BA1" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.1" bidirectional="true" source="//@componentInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.5/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="speed_sensor.sensor_data -> speed_control.scale_speed_data.sensor_data" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
     </connectionReference>
@@ -635,6 +861,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="speed_sensor.sensor_data -> speed_control.scale_distance_data.sensor_data" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.2/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
     </connectionReference>
@@ -643,6 +887,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="interface_unit.set_speed -> speed_control.speed_control_laws.set_speed" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.1/@featureInstance.2" source="//@componentInstance.3/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.2">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
     </connectionReference>
@@ -651,6 +913,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="interface_unit.set_distance -> speed_control.speed_control_laws.set_speed" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.1/@featureInstance.2" source="//@componentInstance.3/@featureInstance.1">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.7/@featureInstance.3">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
     </connectionReference>
@@ -659,6 +939,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="interface_unit.disengage -> speed_control.speed_control_laws.disengage" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.1/@featureInstance.3" source="//@componentInstance.3/@featureInstance.2">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.7/@featureInstance.4">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
     </connectionReference>
@@ -667,6 +965,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="distance_sensor.sensor_data -> speed_control.scale_speed_data.sensor_data" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.0/@featureInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
     </connectionReference>
@@ -675,6 +991,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="distance_sensor.sensor_data -> speed_control.scale_distance_data.sensor_data" complete="true" kind="portConnection" destination="//@componentInstance.7/@componentInstance.2/@featureInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
     </connectionReference>
@@ -683,6 +1017,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="speed_control.speed_control_laws.cmd -> throttle.cmd" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.7/@componentInstance.1/@featureInstance.1">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.7" source="//@componentInstance.7/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.7/@featureInstance.0">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.2"/>
     </connectionReference>
@@ -691,6 +1043,24 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="speed_control.speed_control_laws.cmd -> brake.cmd" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.7/@componentInstance.1/@featureInstance.1">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthBudget"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="20.0">
+          <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.7" source="//@componentInstance.7/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.7/@featureInstance.0">
       <connection xsi:type="aadl2:PortConnection" href="../project.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.2"/>
     </connectionReference>

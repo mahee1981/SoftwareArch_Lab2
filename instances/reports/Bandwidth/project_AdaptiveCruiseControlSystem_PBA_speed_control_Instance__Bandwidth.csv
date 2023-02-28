@@ -1,0 +1,27 @@
+Bound Bus Bandwidth Analysis Report
+
+
+Bus Summary Report: 
+Standard_Marine_Bus bandwidth capacity 62.5 KBytesps sufficient for connection bandwidth  budget totals 0.04 KBytesps
+
+
+Connection Budget Details for bus Standard_Marine_Bus with capacity 62.5 KBytesps
+
+Connection,Budget,Actual (Data Size * Sender Rate),Note
+Standard_Marine_Bus <-> speed_sensor.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> RT_1GHz.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> throttle.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> interface_unit.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> Stand_Memory.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> distance_sensor.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Standard_Marine_Bus <-> brake.BA1, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+speed_sensor.sensor_data -> speed_control.scale_speed_data.sensor_data, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+speed_sensor.sensor_data -> speed_control.scale_distance_data.sensor_data, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+interface_unit.set_speed -> speed_control.speed_control_laws.set_speed, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+interface_unit.set_distance -> speed_control.speed_control_laws.set_speed, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+interface_unit.disengage -> speed_control.speed_control_laws.disengage, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+distance_sensor.sensor_data -> speed_control.scale_speed_data.sensor_data, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+distance_sensor.sensor_data -> speed_control.scale_distance_data.sensor_data, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+speed_control.speed_control_laws.cmd -> throttle.cmd, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+speed_control.speed_control_laws.cmd -> brake.cmd, 0.0025 KBytesps,0.0 KBytesps,Using budget bandwidth
+Total, ,0.040 KBytesps,

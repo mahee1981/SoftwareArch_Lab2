@@ -32,31 +32,31 @@ end AdaptiveCruiseControlSystem;
 		-- DC1, DC2, and DC3 are port connections
 		
 		-- out port sensor_data from speed_sensor is connected to the in port speed_data in speed_control
-		DC1: port speed_sensor.sensor_data -> speed_control.sensor_data; 
+		DC1: port speed_sensor.sensor_data -> speed_control.sensor_data{SEI::BandWidthBudget => 20.0 bitsps;}; 
 		-- out port command_data from speed_control is connected to the in port cmd in throttle
-		DC2: port speed_control.command_data -> throttle.cmd;
+		DC2: port speed_control.command_data -> throttle.cmd{SEI::BandWidthBudget => 20.0 bitsps;};
 		-- out port set_speed from interface_unit is connected to the in port set_speed in speed_control
-		DC3: port interface_unit.set_speed -> speed_control.set_speed;
+		DC3: port interface_unit.set_speed -> speed_control.set_speed{SEI::BandWidthBudget => 20.0 bitsps;};
 		-- out port disengage from interface_unit is connected to the in port disengage in speed_control
-		EC4: port interface_unit.disengage -> speed_control.disengage;
+		EC4: port interface_unit.disengage -> speed_control.disengage{SEI::BandWidthBudget => 20.0 bitsps;};
 		
 		
 		-- extended connections for distance control
-		DC4: port distance_sensor.sensor_data -> speed_control.sensor_data;
-		DC5: port speed_control.command_data -> brake.cmd;
-		DC6: port interface_unit.set_distance -> speed_control.set_distance;
+		DC4: port distance_sensor.sensor_data -> speed_control.sensor_data{SEI::BandWidthBudget => 20.0 bitsps;};
+		DC5: port speed_control.command_data -> brake.cmd{SEI::BandWidthBudget => 20.0 bitsps;};
+		DC6: port interface_unit.set_distance -> speed_control.set_distance{SEI::BandWidthBudget => 20.0 bitsps;};
 		
 		-- BAC1, BAC2, BAC3, BAC4, and BAC5 are the bus access connections for the components that need to communicate with the 
 		-- PBA control software
-		BAC1: bus access Standard_Marine_Bus <-> speed_sensor.BA1;
-    	BAC2: bus access Standard_Marine_Bus <-> RT_1GHz.BA1;
-    	BAC3: bus access Standard_Marine_Bus <-> throttle.BA1;
-    	BAC4: bus access Standard_Marine_Bus <-> interface_unit.BA1;
-    	BAC5: bus access Standard_Marine_Bus <-> Stand_Memory.BA1;
+		BAC1: bus access Standard_Marine_Bus <-> speed_sensor.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    	BAC2: bus access Standard_Marine_Bus <-> RT_1GHz.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    	BAC3: bus access Standard_Marine_Bus <-> throttle.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    	BAC4: bus access Standard_Marine_Bus <-> interface_unit.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    	BAC5: bus access Standard_Marine_Bus <-> Stand_Memory.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
     	
     	-- extended bus accesses for distance control
-    	BAC6: bus access Standard_Marine_Bus <-> distance_sensor.BA1;
-    	BAC7: bus access Standard_Marine_Bus <-> brake.BA1;
+    	BAC6: bus access Standard_Marine_Bus <-> distance_sensor.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
+    	BAC7: bus access Standard_Marine_Bus <-> brake.BA1{SEI::BandWidthBudget => 20.0 bitsps;};
     	
     	
     	
@@ -78,11 +78,10 @@ end AdaptiveCruiseControlSystem;
     	-- binds the storage of code of the speed_control process to the RAM 
   		Actual_Memory_Binding => (reference(Stand_Memory))
     applies to speed_control;
+
+    	Actual_Connection_Binding => (reference (Standard_Marine_Bus))
+    applies to DC1, DC2, DC3, DC4, DC5, DC6, EC4, BAC1, BAC2, BAC3, BAC4, BAC5, BAC6, BAC7;
     
-    
- 
-    	
-    	
 end AdaptiveCruiseControlSystem.PBA_speed_control;
 
 
@@ -92,9 +91,10 @@ end AdaptiveCruiseControlSystem.PBA_speed_control;
 	device sensor
 	features
 		sensor_data: out data port;
-		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
+		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
 	properties
 		SEI::MIPSBudget => 0.05 MIPS;
+		Period => 10ms;
 	end sensor;
 
 --implementation of the sensor component as distance sensor
@@ -114,6 +114,7 @@ end sensor.speed;
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bu
 	properties
 		SEI::MIPSBudget => 0.05 MIPS;
+		Period => 10ms;
 	end interface;
 
 -- implementation of the interface as pilot that will be used as an input for PBA information
@@ -163,6 +164,7 @@ end control.speed;
 		BA1: requires bus access Marine.Standard; -- communication of the component with the process requires access to the bus
 	properties
 			SEI::MIPSBudget => 0.05 MIPS;
+			Period => 10ms;
 	end actuator;
 -- implementation of the actuator device as a speed actuator used for modeling the throttle
 	device implementation actuator.speed
@@ -240,6 +242,7 @@ end Marine;
 	bus implementation Marine.Standard
 		properties
 			SEI::BandWidthCapacity => 500000.0 bitsps;
+    		Transmission_Time => [fixed  => 1ms .. 3ms;];
 end Marine.Standard;
 
 
