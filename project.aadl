@@ -4,7 +4,9 @@ public
 	
 --Definition of the system as a composite component
 system AdaptiveCruiseControlSystem
-	
+	properties
+		Reference_Processor => classifier(Real_Time.one_GHz);
+		SEI::BandWidthCapacity => 50000.0 bitsps;
 end AdaptiveCruiseControlSystem;
 
 
@@ -57,6 +59,8 @@ end AdaptiveCruiseControlSystem;
     	BAC7: bus access Standard_Marine_Bus <-> brake.BA1;
     	
     	
+    	
+    	
 	properties
 		-- allowed_processor_binding properties tie the execution of speed_control_laws and scale_speed_data threads to the processor RT_1GHz
 	
@@ -74,7 +78,14 @@ end AdaptiveCruiseControlSystem;
     	-- binds the storage of code of the speed_control process to the RAM 
   		Actual_Memory_Binding => (reference(Stand_Memory))
     applies to speed_control;
+    
+    
+ 
+    	
+    	
 end AdaptiveCruiseControlSystem.PBA_speed_control;
+
+
 	
 
 -- definition of a sensor component as a device
@@ -141,8 +152,7 @@ end interface.pilot;
     	DC5: port sensor_data -> scale_distance_data.sensor_data;
     	DC6: port scale_distance_data.proc_data -> speed_control_laws.proc_data;
     	DC7: port set_distance -> speed_control_laws.set_speed;
-		properties
-	Reference_Processor => classifier(Real_Time.one_GHz);
+		
     	
 end control.speed;
 	
@@ -196,6 +206,7 @@ end read_data.distance;
     	Compute_Execution_Time => 3 ms .. 5 ms;
     	Period => 50 ms;
     	SEI::MIPSBudget => 0.5 MIPS;
+ 
 end control_laws;
 
 -- implementation of the control_laws thread as control_laws.speed
@@ -227,6 +238,8 @@ end RAM.Standard;
 end Marine;
 -- implementation of a marine bus as standard marine bus component
 	bus implementation Marine.Standard
+		properties
+			SEI::BandWidthCapacity => 500000.0 bitsps;
 end Marine.Standard;
 
 

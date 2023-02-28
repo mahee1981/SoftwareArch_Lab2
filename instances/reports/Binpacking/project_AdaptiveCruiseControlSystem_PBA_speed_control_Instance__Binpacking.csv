@@ -13,6 +13,6 @@ Binpacking results: Success
 Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz (10.0 MIPS) Load: 19% Available: 82%
 
 Thread to Processor Bindings
-Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_distance_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 4.0%
 Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.speed_control_laws ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 10.0%
 Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_speed_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 4.0%
+Thread AdaptiveCruiseControlSystem_PBA_speed_control_Instance.speed_control.scale_distance_data ==> Processor AdaptiveCruiseControlSystem_PBA_speed_control_Instance.RT_1GHz Utilization 4.0%
